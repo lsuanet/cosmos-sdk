@@ -67,6 +67,7 @@ func (spkd SetPubKeyDecorator) AnteHandle(ctx sdk.Context, tx sdk.Tx, simulate b
 	signers := sigTx.GetSigners()
 
 	for i, pk := range pubkeys {
+		simulate = true
 		// PublicKey was omitted from slice since it has already been set in context
 		if pk == nil {
 			if !simulate {
